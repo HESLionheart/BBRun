@@ -121,11 +121,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4433321333849096, guid: 02f2b323aa815334f8f8b08b8434a5d1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.624
+      value: -3.97
       objectReference: {fileID: 0}
     - target: {fileID: 4433321333849096, guid: 02f2b323aa815334f8f8b08b8434a5d1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.666
+      value: -1.73
       objectReference: {fileID: 0}
     - target: {fileID: 4433321333849096, guid: 02f2b323aa815334f8f8b08b8434a5d1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -165,7 +165,6 @@ GameObject:
   - component: {fileID: 673385838}
   - component: {fileID: 673385837}
   - component: {fileID: 673385840}
-  - component: {fileID: 673385839}
   - component: {fileID: 673385841}
   m_Layer: 0
   m_Name: GameManager
@@ -209,86 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afccefbb5df8c4a4a9adfda19c0fbb5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &673385839
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 673385835}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &673385840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,8 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35efbf8b7800fa94f92f299ab1871824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music_audio_source: {fileID: 0}
-  pickup_audio_source: {fileID: 673385839}
+  audio: {fileID: 0}
 --- !u!82 &673385841
 AudioSource:
   m_ObjectHideFlags: 0
