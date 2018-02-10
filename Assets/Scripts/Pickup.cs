@@ -16,7 +16,7 @@ public class Pickup : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            AudioManager.instance.PlayClip(Audio.Pickup, clip);
+            AudioManager.instance.PlayClip(clip);
             Destroy(gameObject);
         }
     }

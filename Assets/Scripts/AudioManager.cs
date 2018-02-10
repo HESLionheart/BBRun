@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Audio
-{
-    None,
-    Pickup,
-    Enemy
-}
-
 public class AudioManager : MonoBehaviour {
 
     [SerializeField]
-    AudioSource music_audio_source,pickup_audio_source;
+    AudioSource audio;
 
     public static AudioManager instance;
 
@@ -23,14 +16,11 @@ public class AudioManager : MonoBehaviour {
             instance = this;
         else
             Destroy(gameObject);
+        audio = GetComponent<AudioSource>();
     }
 
-    public void PlayClip(Audio type,AudioClip clip)
+    public void PlayClip(AudioClip clip)
     {
-        if(type==Audio.Pickup)
-        {
-            pickup_audio_source.clip = clip;
-            pickup_audio_source.Play();
-        }
+        audio.PlayOneShot(clip, 1f);
     }
 }

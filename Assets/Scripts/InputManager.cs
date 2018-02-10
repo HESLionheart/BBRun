@@ -28,7 +28,7 @@ public class InputManager : MonoBehaviour {
                 swipe = true;
                 swipe_start_pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             }
-            else if(swipe_start_pos != null && Input.GetTouch(0).phase == TouchPhase.Ended)
+            else if(swipe && Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 swipe = false;
                 swipe_end_pos= Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
