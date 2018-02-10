@@ -10,8 +10,13 @@ public class MoveLeft : MonoBehaviour {
     private void Update()
     {
         transform.Translate(scroll_speed * new Vector3(-1,0,0) * Time.deltaTime);
-        if(GameManager.instance.PastPlayer(gameObject))
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bound"))
         {
+            GameManager.instance.RemoveFromCount(gameObject);
             Destroy(gameObject);
         }
     }

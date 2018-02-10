@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4130264843939326}
   - component: {fileID: 114748014215491984}
   - component: {fileID: 8195094280681975008}
+  - component: {fileID: 50055739354871856}
   m_Layer: 0
   m_Name: KalpiBus
   m_TagString: Enemy
@@ -73,6 +74,26 @@ Transform:
   m_Father: {fileID: 4130264843939326}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50055739354871856
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346506097442980}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &60960383756000284
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -213,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f972cb8cc4af14884b0dbba7e31d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scroll_speed: 4.5
+  scroll_speed: 5.5
 --- !u!212 &212311924280476690
 SpriteRenderer:
   m_ObjectHideFlags: 1

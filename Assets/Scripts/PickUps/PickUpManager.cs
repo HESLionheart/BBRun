@@ -4,45 +4,68 @@ using UnityEngine;
 
 public class PickUpManager : MonoBehaviour
 {
-    [SerializeField]
-    float hazan_multiplier;
+    public static PickUpManager instance;
+    Player player;
 
-    public void ApplyPickUp(Pickup p)
+    private void Start()
     {
-        if (p.GetType() == typeof(SarahPickUp))
-            StartCoroutine(ApplySarahPickUp(p.Effect_Time, p.Effect_Value));
-        else if (p.GetType() == typeof(PolicePickUp))
-            ApplyPolicePickUp(p.Effect_Time, p.Effect_Value);
-        else if (p.GetType() == typeof(MiriPickUp))
-            ApplyMiriPickUp(p.Effect_Time, p.Effect_Value);
-        else if (p.GetType() == typeof(DuckPickUp))
-            ApplyDuckPickUp(p.Effect_Time, p.Effect_Value);
-        else if (p.GetType() == typeof(HazanPickUp))
-            ApplyHazanPickUp(p.Effect_Time, p.Effect_Value);
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+        player = FindObjectOfType<Player>();
     }
 
-    IEnumerator ApplySarahPickUp(float effect_time, float effect_value)
+    public void ApplyPickup(PickupType type,Pickup pickup)
     {
-        Player player = FindObjectOfType<Player>();
-        player.SetJumpPower(effect_value);
-        yield return new WaitForSeconds(effect_time);
-        player.SetJumpPower(-effect_value);
+        if (type == PickupType.Sarah)
+        {
+            StartCoroutine(ApplySarah(pickup));
+        }
+        else if (type == PickupType.Miri)
+        {
+            ApplyMiri(pickup);
+        }
+        else if(type == PickupType.Hazan)
+        {
+            ApplyHazan(pickup);
+        }
+        else if(type == PickupType.Police)
+        {
+            ApplyPolice(pickup);
+        }
+        else if(type == PickupType.Duck)
+        {
+            ApplyDuck(pickup);
+        }
     }
-    private void ApplyPolicePickUp(float effect_time, float effect_value)
-    {
-        GameManager.instance.ModifyPopularity(effect_value);
-    }
-    private void ApplyMiriPickUp(float effect_time, float effect_value)
-    {
-        GameManager.instance.ModifyMandats(effect_value);
-    }
-    private void ApplyDuckPickUp(float effect_time, float effect_value)
-    {
 
-    }
-    private void ApplyHazanPickUp(float effect_time, float effect_value)
+    IEnumerator ApplySarah(Pickup pickup)
     {
-        GameManager.instance.ModifyMandats(effect_value * -1);
-        GameManager.instance.ModifyPopularity(effect_value * hazan_multiplier);
+        player.SetJumpPower(pickup.Effect_Value);
+        yield return new WaitForSeconds(pickup.Effect_Time);
+        player.SetJumpPower(-pickup.Effect_Value);
+    }
+
+    void ApplyMiri(Pickup pickup)
+    {
+        GameManager.instance.ModifyMandats(pickup.Effect_Value);
+    }
+
+    void ApplyHazan(Pickup pickup)
+    {
+    }
+
+    void ApplyPolice(Pickup pickup)
+    {
+        GameManager.instance.ModifyPopularity(pickup.Effect_Value);
+    }
+
+    void ApplyDuck(Pickup pickup)
+    {
+        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemy);
+        }
     }
 }

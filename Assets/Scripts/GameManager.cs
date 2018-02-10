@@ -84,20 +84,10 @@ public class GameManager : MonoBehaviour {
         spawned = false;
     }
 
-    public bool PastPlayer(GameObject go)
+    public void RemoveFromCount(GameObject go)
     {
-        if(go.transform.position.x < player.transform.position.x-destroy_delta)
-        {
-            if (go.CompareTag("Enemy"))
-                enemies--;
-            return true;
-        }
-        return false;
-    }
-
-    public void ApplyPickUp(Pickup p)
-    {
-        pick_up_manager.ApplyPickUp(p);
+        if (go.CompareTag("Enemy"))
+            enemies--;
     }
 
     public void ModifyPopularity(float value)

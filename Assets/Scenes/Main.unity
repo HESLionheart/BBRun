@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -152,14 +151,63 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114464234480370230, guid: 02f2b323aa815334f8f8b08b8434a5d1,
-        type: 2}
-      propertyPath: jump_power
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02f2b323aa815334f8f8b08b8434a5d1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &579746065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 579746067}
+  - component: {fileID: 579746066}
+  m_Layer: 0
+  m_Name: LeftBound
+  m_TagString: Bound
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &579746066
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 579746065}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.20022303, y: 5.5620127}
+  m_EdgeRadius: 0
+--- !u!4 &579746067
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 579746065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &673385835
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,12 +270,12 @@ MonoBehaviour:
   - {fileID: 1233854203131014, guid: 561569c0df2f6b445b6471389a0c81ba, type: 2}
   enemy_prefabs:
   - {fileID: 1346506097442980, guid: 02c599ee662862b44888f30f5a59cbbb, type: 2}
-  max_enemies: 1
+  max_enemies: 2
   spawn_enemy_timer: 5
   spawn_pickup_timer: 7
   destroy_delta: 1
   pickUpTime: 0
-  popularity: 50
+  popularity: 0
   mandats: 0
 --- !u!114 &673385839
 MonoBehaviour:
@@ -240,7 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caeef7d077c75794a9c66e6d566ad420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazan_multiplier: 5
 --- !u!114 &673385840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +443,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
