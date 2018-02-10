@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
             return;
         if (enemies < max_enemies)
         {
-            int idx = Random.Range(0,enemy_prefabs.Length-1);
+            int idx = Random.Range(0,enemy_prefabs.Length);
             Instantiate(enemy_prefabs[idx]);
             enemies++;
             StartCoroutine(LockSpawn());
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour {
         }
         if (pickups < max_pickups)
         {
-            int idx = Random.Range(0, pickup_prefabs.Length - 1);
+            int idx = Random.Range(0, pickup_prefabs.Length);
             Instantiate(pickup_prefabs[idx]);
             pickups++;
             StartCoroutine(LockSpawn());
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour {
 
     public bool PastPlayer(GameObject go)
     {
-        if(go.transform.position.x < player.transform.position.y-destroy_delta)
+        if(go.transform.position.x < player.transform.position.x-destroy_delta)
         {
             if (go.CompareTag("Enemy"))
                 enemies--;
