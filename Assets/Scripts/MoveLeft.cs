@@ -7,6 +7,10 @@ public class MoveLeft : MonoBehaviour {
     [SerializeField]
     float scroll_speed;
 
+    private void Start()
+    {
+    }
+
     private void Update()
     {
         transform.Translate(scroll_speed * new Vector3(-1,0,0) * Time.deltaTime);

@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour {
 
     public void RemoveFromCount(GameObject go)
     {
-        if (go.CompareTag("Enemy"))
+        //if (go.CompareTag("Enemy"))
             enemies--;
     }
 
