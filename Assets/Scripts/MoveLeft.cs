@@ -10,5 +10,6 @@ public class MoveLeft : MonoBehaviour {
     private void Update()
     {
         transform.Translate(scroll_speed * new Vector3(-1,0,0) * Time.deltaTime);
+        
     }
 }
