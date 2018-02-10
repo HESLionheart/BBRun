@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4604952271150870}
   - component: {fileID: 114652753172427012}
   - component: {fileID: 61594728342753920}
-  - component: {fileID: 114376504145518050}
+  - component: {fileID: 114736809502956694}
   m_Layer: 0
   m_Name: PinkChamp
   m_TagString: Pickup
@@ -97,18 +97,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.30985487, y: 0.9399047}
   m_EdgeRadius: 0
---- !u!114 &114376504145518050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1478618574540358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a30a35025c7d0c42aa04982afbe2c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: ba5122e699845f84384905a9ea258acd, type: 3}
 --- !u!114 &114652753172427012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +109,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scroll_speed: 2
+--- !u!114 &114736809502956694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478618574540358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7b9152693133246a1be6ba2ea09bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: ba5122e699845f84384905a9ea258acd, type: 3}
+  effect_time: 5
+  effect_value: 1.5
 --- !u!212 &212229684932499082
 SpriteRenderer:
   m_ObjectHideFlags: 1

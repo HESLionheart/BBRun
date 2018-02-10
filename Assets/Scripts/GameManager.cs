@@ -11,18 +11,26 @@ public enum Object
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
-
+    
     [SerializeField]
     GameObject[] pickup_prefabs,enemy_prefabs;
     [SerializeField]
     int max_enemies;
     [SerializeField]
     float spawn_enemy_timer,spawn_pickup_timer,destroy_delta;
-
-    bool spawned;
-    int  enemies;
+    [SerializeField]
+    float pickUpTime;
+    [SerializeField]
+    float popularity;
+    [SerializeField]
+    float mandats;
 
     Player player;
+    PickUpManager pick_up_manager;
+    bool spawned;
+    bool pickUp;
+    int  enemies;
+    float pickUpTimer;
 
     private void Start()
     {
@@ -31,6 +39,7 @@ public class GameManager : MonoBehaviour {
         else
             Destroy(gameObject);
         player = FindObjectOfType<Player>();
+        pick_up_manager = GetComponent<PickUpManager>();
         StartCoroutine(SpawnPickup());
     }
 
@@ -84,5 +93,19 @@ public class GameManager : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    public void ApplyPickUp(Pickup p)
+    {
+        pick_up_manager.ApplyPickUp(p);
+    }
+
+    public void ModifyPopularity(float value)
+    {
+        popularity += value;
+    }
+    public void ModifyMandats(float value)
+    {
+        mandats += value;
     }
 }

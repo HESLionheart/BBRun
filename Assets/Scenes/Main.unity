@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -151,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114464234480370230, guid: 02f2b323aa815334f8f8b08b8434a5d1,
+        type: 2}
+      propertyPath: jump_power
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02f2b323aa815334f8f8b08b8434a5d1, type: 2}
   m_IsPrefabParent: 0
@@ -166,6 +172,7 @@ GameObject:
   - component: {fileID: 673385837}
   - component: {fileID: 673385840}
   - component: {fileID: 673385841}
+  - component: {fileID: 673385839}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -213,11 +220,27 @@ MonoBehaviour:
   - {fileID: 1478618574540358, guid: 943c7d130b822b34c8d26ee0c3817702, type: 2}
   - {fileID: 1114263631257290, guid: d3c0e4631ac82674bb557bac01b46dec, type: 2}
   - {fileID: 1233854203131014, guid: 561569c0df2f6b445b6471389a0c81ba, type: 2}
-  enemy_prefabs: []
-  max_enemies: 0
-  spawn_enemy_timer: 0
+  enemy_prefabs:
+  - {fileID: 1346506097442980, guid: 02c599ee662862b44888f30f5a59cbbb, type: 2}
+  max_enemies: 1
+  spawn_enemy_timer: 5
   spawn_pickup_timer: 7
   destroy_delta: 1
+  pickUpTime: 0
+  popularity: 50
+  mandats: 0
+--- !u!114 &673385839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 673385835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caeef7d077c75794a9c66e6d566ad420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hazan_multiplier: 5
 --- !u!114 &673385840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +396,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10

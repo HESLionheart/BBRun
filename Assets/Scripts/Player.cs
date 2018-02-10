@@ -52,4 +52,10 @@ public class Player : MonoBehaviour {
         if (swipe == Dir.Up && !jumping)
             StartJump();
     }
+
+    public void SetJumpPower(float jump_power)
+    {
+        Debug.Log(jump_power);
+        this.jump_power += jump_power;
+    }
 }
