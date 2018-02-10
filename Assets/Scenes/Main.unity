@@ -212,10 +212,11 @@ MonoBehaviour:
   - {fileID: 1835705722665306, guid: 778100269d4940c4b808e0c6e41a62af, type: 2}
   - {fileID: 1478618574540358, guid: 943c7d130b822b34c8d26ee0c3817702, type: 2}
   - {fileID: 1114263631257290, guid: d3c0e4631ac82674bb557bac01b46dec, type: 2}
+  - {fileID: 1233854203131014, guid: 561569c0df2f6b445b6471389a0c81ba, type: 2}
   enemy_prefabs: []
-  max_pickups: 2
   max_enemies: 0
-  spawn_timer: 2
+  spawn_enemy_timer: 0
+  spawn_pickup_timer: 7
   destroy_delta: 1
 --- !u!114 &673385840
 MonoBehaviour:

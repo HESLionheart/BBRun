@@ -15,12 +15,12 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     GameObject[] pickup_prefabs,enemy_prefabs;
     [SerializeField]
-    int max_pickups, max_enemies;
+    int max_enemies;
     [SerializeField]
-    float spawn_timer,destroy_delta;
+    float spawn_enemy_timer,spawn_pickup_timer,destroy_delta;
 
     bool spawned;
-    int pickups, enemies;
+    int  enemies;
 
     Player player;
 
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
         else
             Destroy(gameObject);
         player = FindObjectOfType<Player>();
+        StartCoroutine(SpawnPickup());
     }
 
     private void Update()
@@ -53,22 +54,24 @@ public class GameManager : MonoBehaviour {
             Instantiate(enemy_prefabs[idx]);
             enemies++;
             StartCoroutine(LockSpawn());
-            return;
         }
-        if (pickups < max_pickups)
+    }
+
+    IEnumerator SpawnPickup()
+    {
+        while (true)
         {
             int idx = Random.Range(0, pickup_prefabs.Length);
             Instantiate(pickup_prefabs[idx]);
-            pickups++;
-            StartCoroutine(LockSpawn());
-            return;
+            yield return new WaitForSeconds(spawn_pickup_timer);
         }
+        
     }
 
     IEnumerator LockSpawn()
     {
         spawned = true;
-        yield return new WaitForSeconds(spawn_timer);
+        yield return new WaitForSeconds(spawn_enemy_timer);
         spawned = false;
     }
 
@@ -78,8 +81,6 @@ public class GameManager : MonoBehaviour {
         {
             if (go.CompareTag("Enemy"))
                 enemies--;
-            else if (go.CompareTag("Pickup"))
-                pickups--;
             return true;
         }
         return false;
